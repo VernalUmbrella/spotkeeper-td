@@ -31,3 +31,11 @@ position = Vector2(12, 12)
 curve = SubResource("Curve2D_dvke0")
 
 [node name="Enemy" parent="Path2D" instance=ExtResource("2_46xer")]
+
+[node name="Enemy2" parent="Path2D" instance=ExtResource("2_46xer")]
+position = Vector2(7.91948, 0)
+progress = 7.9
+
+[node name="Enemy3" parent="Path2D" instance=ExtResource("2_46xer")]
+position = Vector2(80, 48.8011)
+progress = 159.2
