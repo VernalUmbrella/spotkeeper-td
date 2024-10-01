@@ -6,10 +6,12 @@
 [ext_resource type="Theme" uid="uid://dljh7gpbntv8f" path="res://global_theme.tres" id="2_b0fn4"]
 [ext_resource type="Script" path="res://scenes/enemy/health_bar.gd" id="4_67l3j"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_54ttd"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_n0hxo"]
 radius = 4.0
 
-[node name="Enemy" type="Node2D"]
+[node name="Enemy" type="PathFollow2D" groups=["enemies"]]
+rotates = false
+loop = false
 script = ExtResource("1_5va8q")
 enemy_stats = ExtResource("2_2pteo")
 
@@ -17,8 +19,10 @@ enemy_stats = ExtResource("2_2pteo")
 scale = Vector2(0.063, 0.063)
 texture = ExtResource("1_uvgxs")
 
-[node name="Hitbox" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_54ttd")
+[node name="Hitbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+shape = SubResource("CircleShape2D_n0hxo")
 
 [node name="HealthBar" type="ProgressBar" parent="." node_paths=PackedStringArray("wielder")]
 anchors_preset = 5

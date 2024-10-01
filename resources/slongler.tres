@@ -7,4 +7,4 @@
 script = ExtResource("1_4c3qy")
 texture = ExtResource("2_4syt7")
 max_health = 6.0
-speed = 3.0
+speed = 8.0

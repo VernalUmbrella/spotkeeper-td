@@ -1,5 +1,5 @@
 class_name Enemy
-extends Node2D
+extends PathFollow2D
 
 signal health_changed(new_health: float)
 
@@ -7,7 +7,7 @@ signal health_changed(new_health: float)
 # TODO: sprite is set to 1/16 scale, change it back to 1 when we get the properly sized sprite
 
 @onready var sprite: Sprite2D = $Sprite
-@onready var hitbox: CollisionShape2D = $Hitbox
+@onready var hitbox: Area2D = $Hitbox
 @onready var health_bar: ProgressBar = $HealthBar
 
 var max_health: float
@@ -23,6 +23,14 @@ func _ready() -> void:
 	max_health = enemy_stats.max_health
 	health_bar.max_value = max_health
 	current_health = max_health
+
+func _process(delta: float) -> void:
+	step_forward(delta)
+
+func step_forward(delta: float) -> void:
+	progress += enemy_stats.speed * delta
+	progress_ratio = fmod(progress_ratio, 1.0) # TODO remove
+	
 
 func die() -> void:
 	queue_free()
