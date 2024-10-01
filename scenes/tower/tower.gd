@@ -1,45 +1,28 @@
 class_name Tower
 extends Node2D
 
-@export var attack_range: float:
-	set(value):
-		attack_range = value
-		if not range_shape:
-			return
-		range_shape.shape = RectangleShape2D.new()
-		range_shape.shape.set_size(Main.TILE_SIZE * (1+2*attack_range))
-@export var damage_per_second: float
+@export var tower_stats: TowerStats # TODO: this assumes it will never change
 
 @onready var sprite: Sprite2D = $Sprite
 @onready var range_area: Area2D = $AttackRange
 @onready var range_shape: CollisionShape2D = $AttackRange/CollisionShape2D
-@onready var laser: Line2D = $Laser
 
-var current_target: Enemy
+var current_targets: Array[Enemy]
 
 func _ready() -> void:
-	laser.add_point(Main.HALF_TILE_SIZE)
-	laser.add_point(Vector2.ZERO)
+	sprite.texture = tower_stats.texture
+	range_shape.shape.set_size(Main.TILE_SIZE * (1+2*tower_stats.attack_range))
 
-func _process(delta: float) -> void:
-	locate_target()
-	attack(delta)
-
-func locate_target() -> void:
+func locate_targets() -> Array[Enemy]:
 	var candidates: Array[Enemy]
 	for overlapper: Area2D in range_area.get_overlapping_areas():
-		var enemy: Enemy = overlapper.get_parent() #TODO: rework to avoid get_parent?
-		if enemy.is_in_group("enemies"):
-			candidates.append(enemy)
-	if not candidates:
-		current_target = null
-		return
-	current_target = candidates[0] #TODO: get based on path progress
+		var owner = overlapper.get_parent() #TODO: rework to avoid get_parent?
+		if owner is not Enemy:
+			continue
+		if owner.is_in_group("enemies"):
+			candidates.append(owner)
+	# TODO: sort based on path progress
+	return candidates.slice(0, tower_stats.max_targets)
 
-func attack(delta: float) -> void:
-	if not current_target:
-		laser.visible = false
-		return
-	laser.visible = true
-	laser.points[1] = current_target.global_position - global_position
-	current_target.current_health -= (delta * damage_per_second)
+func _attack(_delta: float) -> void:
+	assert(false, "Abstract `attack` function not overridden in Tower")

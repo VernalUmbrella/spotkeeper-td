@@ -4,7 +4,6 @@ extends PathFollow2D
 signal health_changed(new_health: float)
 
 @export var enemy_stats: EnemyStats
-# TODO: sprite is set to 1/16 scale, change it back to 1 when we get the properly sized sprite
 
 @onready var sprite: Sprite2D = $Sprite
 @onready var hitbox: Area2D = $Hitbox
