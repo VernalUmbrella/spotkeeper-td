@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://dqf15m1xfb8px"]
+
+[ext_resource type="Script" path="res://scenes/tower/tower.gd" id="1_fpuou"]
+
+[sub_resource type="Gradient" id="Gradient_l4agx"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_6h8kg"]
+gradient = SubResource("Gradient_l4agx")
+width = 8
+height = 8
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w502h"]
+size = Vector2(40, 40)
+
+[node name="Tower" type="Node2D"]
+script = ExtResource("1_fpuou")
+attack_distance = 2.0
+damage_per_second = 4.0
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture = SubResource("GradientTexture2D_6h8kg")
+
+[node name="Range" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Range"]
+shape = SubResource("RectangleShape2D_w502h")
