@@ -14,8 +14,6 @@ var current_health: float:
 	set(value):
 		current_health = value
 		health_changed.emit(value)
-		if current_health <= 0:
-			die()
 
 func _ready() -> void:
 	sprite.texture = enemy_stats.texture
@@ -24,6 +22,8 @@ func _ready() -> void:
 	current_health = max_health
 
 func _process(delta: float) -> void:
+	if current_health <= 0:
+		die()
 	step_forward(delta)
 
 func step_forward(delta: float) -> void:
@@ -32,4 +32,5 @@ func step_forward(delta: float) -> void:
 	
 
 func die() -> void:
+	Events.enemy_died.emit(enemy_stats)
 	queue_free()

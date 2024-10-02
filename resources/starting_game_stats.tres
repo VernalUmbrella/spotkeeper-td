@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="GameStats" load_steps=2 format=3 uid="uid://dnlk6dm14k4rn"]
+
+[ext_resource type="Script" path="res://resources/game_stats.gd" id="1_0hd2x"]
+
+[resource]
+script = ExtResource("1_0hd2x")
+money = 20
+lives_left = 10

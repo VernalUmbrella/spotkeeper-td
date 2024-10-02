@@ -6,3 +6,4 @@ extends Resource
 @export_group("Attributes")
 @export var max_health: float
 @export var speed: float
+@export var loot: int
