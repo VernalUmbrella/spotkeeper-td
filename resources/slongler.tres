@@ -14,4 +14,4 @@ height = 8
 script = ExtResource("1_4c3qy")
 texture = SubResource("GradientTexture2D_fnr11")
 max_health = 6.0
-speed = 8.0
+speed = 30.0
