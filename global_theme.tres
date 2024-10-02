@@ -1,4 +1,6 @@
-[gd_resource type="Theme" load_steps=3 format=3 uid="uid://dljh7gpbntv8f"]
+[gd_resource type="Theme" load_steps=4 format=3 uid="uid://dljh7gpbntv8f"]
+
+[ext_resource type="FontFile" uid="uid://d2n6ayyjtt7cd" path="res://assets/Freezeframe-Cond.ttf" id="1_5wbxc"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ssxal"]
 bg_color = Color(0.443469, 0.0441714, 0.00962374, 1)
@@ -7,5 +9,7 @@ bg_color = Color(0.443469, 0.0441714, 0.00962374, 1)
 bg_color = Color(0.2301, 0.690933, 0.550916, 1)
 
 [resource]
+default_font = ExtResource("1_5wbxc")
+default_font_size = 8
 ProgressBar/styles/background = SubResource("StyleBoxFlat_ssxal")
 ProgressBar/styles/fill = SubResource("StyleBoxFlat_gw4t1")
