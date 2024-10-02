@@ -9,3 +9,4 @@ extends Resource
 @export var attacks_per_second: float
 @export var attack_range: float
 @export var max_targets: int
+@export var tower_script: Script
