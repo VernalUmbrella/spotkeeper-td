@@ -29,7 +29,6 @@ func _process(delta: float) -> void:
 func step_forward(delta: float) -> void:
 	progress += enemy_stats.speed * delta
 	progress_ratio = fmod(progress_ratio, 1.0) # TODO remove
-	
 
 func die() -> void:
 	Events.enemy_died.emit(enemy_stats)

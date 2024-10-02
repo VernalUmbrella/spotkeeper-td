@@ -9,6 +9,7 @@ extends VBoxContainer
 
 func _ready() -> void:
 	game_stats.game_stats_changed.connect(_on_game_stats_changed)
+	_on_game_stats_changed()
 
 func _on_game_stats_changed() -> void:
 	money_lives_label.text = "[color={yellow}]$ {money}[/color]\n[color={red}]() {lives}[/color]".format({
