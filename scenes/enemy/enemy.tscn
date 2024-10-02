@@ -23,8 +23,10 @@ enemy_stats = ExtResource("2_2pteo")
 
 [node name="Sprite" type="Sprite2D" parent="."]
 texture = SubResource("GradientTexture2D_1qy8h")
+centered = false
 
 [node name="Hitbox" type="Area2D" parent="."]
+position = Vector2(4, 4)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
 shape = SubResource("CircleShape2D_n0hxo")
@@ -33,10 +35,10 @@ shape = SubResource("CircleShape2D_n0hxo")
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -3.0
-offset_top = -7.0
-offset_right = 3.0
-offset_bottom = -5.0
+offset_left = 1.0
+offset_top = -3.0
+offset_right = 7.0
+offset_bottom = -1.0
 grow_horizontal = 2
 theme = ExtResource("2_b0fn4")
 step = 1.0

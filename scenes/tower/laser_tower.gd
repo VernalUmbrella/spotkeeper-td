@@ -20,5 +20,5 @@ func _attack(delta: float) -> void:
 		return
 	laser.visible = true
 	for t: Enemy in current_targets:
-		laser.points[1] = t.global_position - global_position
+		laser.points[1] = (t.global_position + Main.HALF_TILE_SIZE) - global_position
 		t.current_health -= (delta * tower_stats.damage)

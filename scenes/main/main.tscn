@@ -29,18 +29,18 @@ position = Vector2(16, 32)
 position = Vector2(40, 40)
 
 [node name="Path2D" type="Path2D" parent="."]
-position = Vector2(12, 4)
+position = Vector2(8, 0)
 curve = SubResource("Curve2D_dvke0")
 
 [node name="Enemy" parent="Path2D" instance=ExtResource("2_46xer")]
 
 [node name="Enemy2" parent="Path2D" instance=ExtResource("2_46xer")]
-position = Vector2(0, 3.63861)
-progress = 3.64
+position = Vector2(0, 50.1841)
+progress = 50.18
 
 [node name="Enemy3" parent="Path2D" instance=ExtResource("2_46xer")]
-position = Vector2(55.1992, 8)
-progress = 159.2
+position = Vector2(76.86, 32)
+progress = 275.14
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
