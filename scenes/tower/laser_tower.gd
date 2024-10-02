@@ -15,6 +15,7 @@ func _process(delta: float) -> void:
 	_attack(delta)
 
 func _attack(delta: float) -> void:
+	assert(tower_stats.max_targets == 1) # TODO: implement multi-targeting
 	if not current_targets:
 		laser.visible = false
 		return
