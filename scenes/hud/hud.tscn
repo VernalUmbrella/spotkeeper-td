@@ -43,9 +43,9 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/margin_left = 3
-theme_override_constants/margin_top = 0
+theme_override_constants/margin_top = 3
 theme_override_constants/margin_right = 3
-theme_override_constants/margin_bottom = 0
+theme_override_constants/margin_bottom = 3
 
 [node name="HBoxContainer" type="HBoxContainer" parent="HBar/MarginContainer"]
 layout_mode = 2
@@ -56,8 +56,8 @@ layout_mode = 2
 size_flags_vertical = 4
 theme_override_constants/line_separation = 0
 bbcode_enabled = true
-text = "[color=\"yellow\"]$ 10[/color]
-[color=\"red\"]() 20[/color]"
+text = "[color=feda84]$ 10[/color]
+[color=ff9b83]() 20[/color]"
 fit_content = true
 scroll_active = false
 autowrap_mode = 0

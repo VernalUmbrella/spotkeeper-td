@@ -13,7 +13,7 @@ height = 8
 [resource]
 script = ExtResource("1_w6on5")
 texture = SubResource("GradientTexture2D_unl1h")
-attack_color = Color(1, 0.425788, 0.357085, 1)
+attack_color = Color(1, 0.607843, 0.513726, 1)
 damage = 1.0
 attacks_per_second = 1.0
 attack_range = 2.0
