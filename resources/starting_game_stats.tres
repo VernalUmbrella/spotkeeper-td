@@ -4,5 +4,5 @@
 
 [resource]
 script = ExtResource("1_0hd2x")
-money = 20
+money = 50
 lives_left = 10

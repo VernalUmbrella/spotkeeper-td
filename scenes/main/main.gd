@@ -6,7 +6,8 @@ const HALF_TILE_SIZE := TILE_SIZE / 2
 const TowerScene = preload("res://scenes/tower/tower.tscn")
 const TOWER_RESOURCES: Array[TowerStats] = [
 	preload("res://resources/towers/laser_tower.tres"),
-	preload("res://resources/towers/super_laser_tower.tres")
+	preload("res://resources/towers/pulse_tower.tres"),
+	preload("res://resources/towers/super_laser_tower.tres"),
 ]
 
 @export var game_stats: GameStats
@@ -22,7 +23,7 @@ func _process(_delta: float) -> void:
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_accept"):
-		place_tower(TOWER_RESOURCES[0])
+		place_tower(TOWER_RESOURCES[1])
 
 func update_cursor() -> void:
 	var mouse_position: Vector2 = get_local_mouse_position()

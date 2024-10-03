@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="TowerStats" load_steps=5 format=3 uid="uid://bderd3qgjtoq"]
+
+[ext_resource type="Script" path="res://resources/towers/tower_stats.gd" id="1_jpoek"]
+[ext_resource type="Script" path="res://resources/towers/pulse_tower.gd" id="2_ht3f4"]
+
+[sub_resource type="Gradient" id="Gradient_2wqvm"]
+colors = PackedColorArray(0.161251, 0.00601538, 0.00132007, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_l1o8g"]
+gradient = SubResource("Gradient_2wqvm")
+width = 8
+height = 8
+
+[resource]
+script = ExtResource("1_jpoek")
+texture = SubResource("GradientTexture2D_l1o8g")
+attack_color = Color(1, 0, 0, 1)
+name = "Pulse"
+cost = 25
+damage = 0.8
+attacks_per_second = 1.5
+attack_range = 1.0
+max_targets = 99
+tower_script = ExtResource("2_ht3f4")

@@ -1,0 +1,34 @@
+class_name PulseTower
+extends Tower
+
+@export var max_opacity: float = 0.6
+@export var flash_duration: float = 0.5
+
+var attack_timer: Timer
+var pulse_visual: ColorRect
+
+func _ready() -> void:
+	super._ready()
+	attack_timer = Timer.new()
+	attack_timer.wait_time = 1.0 / tower_stats.attacks_per_second
+	attack_timer.one_shot = true
+	add_child(attack_timer)
+	pulse_visual = ColorRect.new()
+	pulse_visual.color = tower_stats.attack_color
+	pulse_visual.size = range_shape.shape.get_rect().size
+	pulse_visual.position = -(pulse_visual.size / 2) + Main.HALF_TILE_SIZE
+	pulse_visual.modulate = Color.TRANSPARENT
+	add_child(pulse_visual)
+
+func _process(delta: float) -> void:
+	current_targets = locate_targets()
+	_attack(delta)
+
+func _attack(_delta: float) -> void:
+	if not attack_timer.is_stopped() or not current_targets:
+		return
+	var pulse_tween := create_tween()
+	pulse_tween.tween_property(pulse_visual, "modulate", Color.TRANSPARENT, flash_duration).from(Color(Color.WHITE, max_opacity))
+	attack_timer.start()
+	for t: Enemy in current_targets:
+		t.current_health -= tower_stats.damage
