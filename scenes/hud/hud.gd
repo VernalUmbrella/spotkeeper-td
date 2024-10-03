@@ -10,8 +10,13 @@ extends VBoxContainer
 func _ready() -> void:
 	Events.tower_selected.connect(_on_tower_selected)
 	_on_tower_selected(null)
+	Events.wave_ended.connect(_on_wave_ended)
 	game_stats.game_stats_changed.connect(_on_game_stats_changed)
 	_on_game_stats_changed()
+
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("start_wave") and not wave_button.disabled:
+		_on_wave_button_pressed()
 
 func _on_game_stats_changed() -> void:
 	money_lives_label.text = "[color={yellow}]$ {money}[/color]\n[color={red}]C {lives}[/color]".format({
@@ -20,6 +25,7 @@ func _on_game_stats_changed() -> void:
 		"money": game_stats.money,
 		"lives": game_stats.lives_left,
 	})
+	wave_button.text = "%s >>" % (game_stats.current_wave + 1)
 
 func _on_tower_selected(tower_stats: TowerStats) -> void:
 	if not tower_stats:
@@ -29,3 +35,10 @@ func _on_tower_selected(tower_stats: TowerStats) -> void:
 		"tower_name": tower_stats.name,
 		"tower_cost": tower_stats.cost,
 	})
+
+func _on_wave_button_pressed() -> void:
+	wave_button.disabled = true
+	Events.wave_started.emit()
+
+func _on_wave_ended() -> void:
+	wave_button.disabled = false

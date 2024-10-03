@@ -12,3 +12,8 @@ signal game_stats_changed()
 	set(value):
 		lives_left = value # TODO: check if dead
 		game_stats_changed.emit()
+@export var wave_sequence: Array[Wave]
+@export var current_wave: int = 0:
+	set(value):
+		current_wave = value
+		game_stats_changed.emit()

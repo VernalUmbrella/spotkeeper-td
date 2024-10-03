@@ -124,3 +124,5 @@ unique_name_in_owner = true
 layout_mode = 2
 focus_mode = 0
 text = "2 >>"
+
+[connection signal="pressed" from="HBar/MarginContainer/HBoxContainer/WaveButton" to="." method="_on_wave_button_pressed"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=4 uid="uid://ccmqm7fx46umd"]
+[gd_scene load_steps=8 format=4 uid="uid://ccmqm7fx46umd"]
 
 [ext_resource type="Script" path="res://scenes/main/main.gd" id="1_174vw"]
 [ext_resource type="Resource" uid="uid://dnlk6dm14k4rn" path="res://resources/starting_game_stats.tres" id="2_q0308"]
@@ -6,14 +6,11 @@
 [ext_resource type="PackedScene" uid="uid://b3j20yagie20j" path="res://scenes/tile_cursor/tile_cursor.tscn" id="3_3wfm8"]
 [ext_resource type="PackedScene" uid="uid://b8wrls8mbvp8i" path="res://scenes/hud/hud.tscn" id="4_8n207"]
 [ext_resource type="Script" path="res://scenes/enemy/enemy_path.gd" id="5_2di7r"]
-[ext_resource type="Script" path="res://resources/waves/wave.gd" id="6_hax78"]
-[ext_resource type="Resource" uid="uid://ckpd3m4y4gicm" path="res://resources/waves/wave0.tres" id="7_24gyx"]
-[ext_resource type="Resource" uid="uid://3fobcdff3ups" path="res://resources/waves/wave1.tres" id="8_rvkr1"]
 
 [sub_resource type="Curve2D" id="Curve2D_dvke0"]
 bake_interval = 1.0
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 56, 0, 0, 0, 0, 16, 56, 0, 0, 0, 0, 16, 8, 0, 0, 0, 0, 104, 8, 0, 0, 0, 0, 104, 40, 0, 0, 0, 0, 72, 40, 0, 0, 0, 0, 72, 32, 0, 0, 0, 0, 64, 32, 0, 0, 0, 0, 64, 24, 0, 0, 0, 0, 32, 24, 0, 0, 0, 0, 32, 56, 0, 0, 0, 0, 120, 56)
+"points": PackedVector2Array(0, 0, 0, 0, 0, -8, 0, 0, 0, 0, 0, 56, 0, 0, 0, 0, 16, 56, 0, 0, 0, 0, 16, 8, 0, 0, 0, 0, 104, 8, 0, 0, 0, 0, 104, 40, 0, 0, 0, 0, 72, 40, 0, 0, 0, 0, 72, 32, 0, 0, 0, 0, 64, 32, 0, 0, 0, 0, 64, 24, 0, 0, 0, 0, 32, 24, 0, 0, 0, 0, 32, 56, 0, 0, 0, 0, 120, 56)
 }
 point_count = 13
 
@@ -41,7 +38,6 @@ position = Vector2(-8, 0)
 position = Vector2(8, 0)
 curve = SubResource("Curve2D_dvke0")
 script = ExtResource("5_2di7r")
-waves = Array[ExtResource("6_hax78")]([ExtResource("7_24gyx"), ExtResource("8_rvkr1")])
 metadata/_edit_lock_ = true
 
 [node name="SpawnTimer" type="Timer" parent="EnemyPath"]

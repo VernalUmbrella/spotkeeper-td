@@ -17,6 +17,7 @@ const TOWER_RESOURCES: Array[TowerStats] = [
 
 @onready var map: TileMapLayer = $Map
 @onready var tile_cursor: TileCursor = $Map/TileCursor
+@onready var enemy_path: EnemyPath = $EnemyPath
 
 var selected_tower: TowerStats
 var hovered_tile: Vector2i
@@ -24,6 +25,7 @@ var hovered_tile: Vector2i
 func _ready() -> void:
 	Events.enemy_died.connect(_on_enemy_died)
 	Events.tower_selected.connect(_on_tower_selected)
+	enemy_path.game_stats = game_stats
 
 func _process(_delta: float) -> void:
 	update_cursor()
@@ -32,7 +34,7 @@ func _input(event: InputEvent) -> void:
 	for tower_i in len(TOWER_RESOURCES):
 		if event.is_action_pressed("tower%s" % tower_i):
 			Events.tower_selected.emit(TOWER_RESOURCES[tower_i])
-	if event.is_action_pressed("ui_accept") and selected_tower:
+	if event.is_action_pressed("place_tower") and selected_tower:
 		place_tower(selected_tower)
 
 func update_cursor() -> void:
