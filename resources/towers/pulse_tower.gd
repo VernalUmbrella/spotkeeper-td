@@ -18,6 +18,7 @@ func _ready() -> void:
 	pulse_visual.size = range_shape.shape.get_rect().size
 	pulse_visual.position = -(pulse_visual.size / 2) + Main.HALF_TILE_SIZE
 	pulse_visual.modulate = Color.TRANSPARENT
+	pulse_visual.z_index = 5
 	add_child(pulse_visual)
 
 func _process(delta: float) -> void:

@@ -4,6 +4,7 @@ extends Node2D
 const TILE_SIZE := Vector2(8, 8)
 const HALF_TILE_SIZE := TILE_SIZE / 2
 const TowerScene = preload("res://scenes/tower/tower.tscn")
+const BOARD_DIMENSIONS := Vector2i(16, 9)
 const TOWER_RESOURCES: Array[TowerStats] = [
 	null,
 	preload("res://resources/towers/laser_tower.tres"),
@@ -18,6 +19,7 @@ const TOWER_RESOURCES: Array[TowerStats] = [
 @onready var tile_cursor: TileCursor = $Map/TileCursor
 
 var selected_tower: TowerStats
+var hovered_tile: Vector2i
 
 func _ready() -> void:
 	Events.enemy_died.connect(_on_enemy_died)
@@ -35,11 +37,19 @@ func _input(event: InputEvent) -> void:
 
 func update_cursor() -> void:
 	var mouse_position: Vector2 = get_local_mouse_position()
-	var hovered_tile_data: TileData = map.get_cell_tile_data(map.local_to_map(mouse_position)) # TODO: test with real tiles
-	tile_cursor.position = (mouse_position - HALF_TILE_SIZE).snapped(TILE_SIZE)
+	hovered_tile = map.local_to_map(mouse_position)
+	tile_cursor.visible = false
+	if hovered_tile.x not in range(BOARD_DIMENSIONS.x) or hovered_tile.y not in range(BOARD_DIMENSIONS.y):
+		return
+	if map.get_cell_tile_data(hovered_tile).get_custom_data("buildable"):
+		tile_cursor.visible = true
+		tile_cursor.position = (mouse_position - HALF_TILE_SIZE).snapped(TILE_SIZE)
 
 func place_tower(tower_stats: TowerStats) -> void:
+	if not tile_cursor.visible:
+		return
 	if game_stats.money < tower_stats.cost:
+		# TODO: flash money red, play sound
 		return
 	game_stats.money -= tower_stats.cost
 	var new_tower := TowerScene.instantiate()

@@ -9,6 +9,7 @@ extends VBoxContainer
 
 func _ready() -> void:
 	Events.tower_selected.connect(_on_tower_selected)
+	_on_tower_selected(null)
 	game_stats.game_stats_changed.connect(_on_game_stats_changed)
 	_on_game_stats_changed()
 
