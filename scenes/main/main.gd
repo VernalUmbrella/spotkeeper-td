@@ -24,6 +24,7 @@ var hovered_tile: Vector2i
 
 func _ready() -> void:
 	Events.enemy_died.connect(_on_enemy_died)
+	Events.enemy_leaked.connect(_on_enemy_leaked)
 	Events.tower_selected.connect(_on_tower_selected)
 	enemy_path.game_stats = game_stats
 
@@ -62,6 +63,9 @@ func place_tower(tower_stats: TowerStats) -> void:
 
 func _on_enemy_died(enemy_stats: EnemyStats):
 	game_stats.money += enemy_stats.loot
+
+func _on_enemy_leaked():
+	game_stats.lives_left -= 1
 
 func _on_tower_selected(tower_stats: TowerStats):
 	selected_tower = tower_stats

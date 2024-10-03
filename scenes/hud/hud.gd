@@ -13,6 +13,7 @@ func _ready() -> void:
 	Events.wave_ended.connect(_on_wave_ended)
 	game_stats.game_stats_changed.connect(_on_game_stats_changed)
 	_on_game_stats_changed()
+	Events.game_lost.connect(_on_game_lost)
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("start_wave") and not wave_button.disabled:
@@ -42,3 +43,6 @@ func _on_wave_button_pressed() -> void:
 
 func _on_wave_ended() -> void:
 	wave_button.disabled = false
+
+func _on_game_lost() -> void:
+	tooltip.text = "YOU DIED"

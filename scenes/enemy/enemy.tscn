@@ -3,7 +3,6 @@
 [ext_resource type="Script" path="res://scenes/enemy/enemy.gd" id="1_5va8q"]
 [ext_resource type="Resource" uid="uid://b3pgmwuffahgr" path="res://resources/enemies/slongler.tres" id="2_2pteo"]
 [ext_resource type="Theme" uid="uid://dljh7gpbntv8f" path="res://ui/global_theme.tres" id="2_b0fn4"]
-[ext_resource type="Script" path="res://scenes/enemy/health_bar.gd" id="4_67l3j"]
 
 [sub_resource type="Gradient" id="Gradient_ohsrn"]
 
@@ -14,6 +13,20 @@ height = 8
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_n0hxo"]
 radius = 1.0
+
+[sub_resource type="GDScript" id="GDScript_77jn3"]
+script/source = "class_name HealthBar
+extends ProgressBar
+
+@export var enemy_stats: EnemyStats
+#
+#func _ready():
+	#enemy_stats.stats_changed.connect(_on_health_changed)
+#
+#func _on_health_changed(new_health):
+	#visible = (new_health < max_value)
+	#value = new_health
+"
 
 [node name="Enemy" type="PathFollow2D" groups=["enemies"]]
 rotates = false
@@ -31,7 +44,8 @@ position = Vector2(4, 4)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
 shape = SubResource("CircleShape2D_n0hxo")
 
-[node name="HealthBar" type="ProgressBar" parent="." node_paths=PackedStringArray("wielder")]
+[node name="HealthBar" type="ProgressBar" parent="."]
+visible = false
 z_index = 2
 anchors_preset = 5
 anchor_left = 0.5
@@ -45,5 +59,4 @@ theme = ExtResource("2_b0fn4")
 step = 1.0
 value = 37.0
 show_percentage = false
-script = ExtResource("4_67l3j")
-wielder = NodePath("..")
+script = SubResource("GDScript_77jn3")

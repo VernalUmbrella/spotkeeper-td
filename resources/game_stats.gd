@@ -10,8 +10,10 @@ signal game_stats_changed()
 		game_stats_changed.emit()
 @export var lives_left: int = 10:
 	set(value):
-		lives_left = value # TODO: check if dead
+		lives_left = value
 		game_stats_changed.emit()
+		if lives_left <= 0:
+			Events.game_lost.emit()
 @export var wave_sequence: Array[Wave]
 @export var current_wave: int = 0:
 	set(value):

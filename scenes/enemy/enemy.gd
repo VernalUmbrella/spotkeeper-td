@@ -1,8 +1,6 @@
 class_name Enemy
 extends PathFollow2D
 
-signal health_changed(new_health: float)
-
 @export var enemy_stats: EnemyStats
 
 @onready var sprite: Sprite2D = $Sprite
@@ -13,7 +11,8 @@ var max_health: float
 var current_health: float:
 	set(value):
 		current_health = value
-		health_changed.emit(value)
+		health_bar.value = current_health
+		health_bar.visible = (current_health < enemy_stats.max_health)
 
 func _ready() -> void:
 	sprite.texture = enemy_stats.texture
@@ -28,8 +27,13 @@ func _process(delta: float) -> void:
 
 func step_forward(delta: float) -> void:
 	progress += enemy_stats.speed * delta
-	progress_ratio = fmod(progress_ratio, 1.0) # TODO remove
+	if progress_ratio >= 1.0:
+		leak()
 
 func die() -> void:
 	Events.enemy_died.emit(enemy_stats)
+	queue_free()
+
+func leak() -> void:
+	Events.enemy_leaked.emit()
 	queue_free()

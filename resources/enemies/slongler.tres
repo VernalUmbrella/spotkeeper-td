@@ -7,5 +7,5 @@
 script = ExtResource("1_rtolc")
 texture = ExtResource("2_r8dyt")
 max_health = 6.0
-speed = 12.0
+speed = 18.0
 loot = 5
