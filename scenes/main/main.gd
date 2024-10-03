@@ -4,7 +4,10 @@ extends Node2D
 const TILE_SIZE := Vector2(8, 8)
 const HALF_TILE_SIZE := TILE_SIZE / 2
 const TowerScene = preload("res://scenes/tower/tower.tscn")
-const LASER_TOWER = preload("res://resources/towers/laser_tower.tres")
+const TOWER_RESOURCES: Array[TowerStats] = [
+	preload("res://resources/towers/laser_tower.tres"),
+	preload("res://resources/towers/super_laser_tower.tres")
+]
 
 @export var game_stats: GameStats
 
@@ -19,7 +22,7 @@ func _process(_delta: float) -> void:
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_accept"):
-		place_tower(LASER_TOWER)
+		place_tower(TOWER_RESOURCES[0])
 
 func update_cursor() -> void:
 	var mouse_position: Vector2 = get_local_mouse_position()
@@ -27,6 +30,9 @@ func update_cursor() -> void:
 	tile_cursor.position = (mouse_position - HALF_TILE_SIZE).snapped(TILE_SIZE)
 
 func place_tower(tower_stats: TowerStats) -> void:
+	if game_stats.money < tower_stats.cost:
+		return
+	game_stats.money -= tower_stats.cost
 	var new_tower := TowerScene.instantiate()
 	new_tower.set_script(tower_stats.tower_script)
 	new_tower.tower_stats = tower_stats

@@ -10,6 +10,7 @@ func _ready() -> void:
 	laser.default_color = tower_stats.attack_color
 	laser.add_point(Main.HALF_TILE_SIZE)
 	laser.add_point(Main.HALF_TILE_SIZE)
+	laser.z_index = 5
 	laser.visible = false
 	self.add_child(laser)
 
