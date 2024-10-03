@@ -5,9 +5,11 @@ const TILE_SIZE := Vector2(8, 8)
 const HALF_TILE_SIZE := TILE_SIZE / 2
 const TowerScene = preload("res://scenes/tower/tower.tscn")
 const TOWER_RESOURCES: Array[TowerStats] = [
+	null,
 	preload("res://resources/towers/laser_tower.tres"),
 	preload("res://resources/towers/pulse_tower.tres"),
 	preload("res://resources/towers/super_laser_tower.tres"),
+	preload("res://resources/towers/laser_tower.tres"),
 ]
 
 @export var game_stats: GameStats
@@ -15,15 +17,21 @@ const TOWER_RESOURCES: Array[TowerStats] = [
 @onready var map: TileMapLayer = $Map
 @onready var tile_cursor: TileCursor = $Map/TileCursor
 
+var selected_tower: TowerStats
+
 func _ready() -> void:
 	Events.enemy_died.connect(_on_enemy_died)
+	Events.tower_selected.connect(_on_tower_selected)
 
 func _process(_delta: float) -> void:
 	update_cursor()
 
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("ui_accept"):
-		place_tower(TOWER_RESOURCES[1])
+	for tower_i in len(TOWER_RESOURCES):
+		if event.is_action_pressed("tower%s" % tower_i):
+			Events.tower_selected.emit(TOWER_RESOURCES[tower_i])
+	if event.is_action_pressed("ui_accept") and selected_tower:
+		place_tower(selected_tower)
 
 func update_cursor() -> void:
 	var mouse_position: Vector2 = get_local_mouse_position()
@@ -42,3 +50,6 @@ func place_tower(tower_stats: TowerStats) -> void:
 
 func _on_enemy_died(enemy_stats: EnemyStats):
 	game_stats.money += enemy_stats.loot
+
+func _on_tower_selected(tower_stats: TowerStats):
+	selected_tower = tower_stats
