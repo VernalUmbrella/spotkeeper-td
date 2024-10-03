@@ -11,6 +11,7 @@ var current_targets: Array[Enemy]
 
 func _ready() -> void:
 	sprite.texture = tower_stats.texture
+	range_shape.shape = RectangleShape2D.new()
 	range_shape.shape.set_size(Main.TILE_SIZE * (1+2*tower_stats.attack_range))
 
 func locate_targets() -> Array[Enemy]:
