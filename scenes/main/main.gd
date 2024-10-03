@@ -18,6 +18,7 @@ const TOWER_RESOURCES: Array[TowerStats] = [
 @onready var map: TileMapLayer = $Map
 @onready var tile_cursor: TileCursor = $Map/TileCursor
 @onready var enemy_path: EnemyPath = $EnemyPath
+@onready var hud: HUD = $CanvasLayer/HUD
 
 var selected_tower: TowerStats
 var hovered_tile: Vector2i
@@ -58,7 +59,7 @@ func place_tower(tower_stats: TowerStats) -> void:
 	var new_tower := TowerScene.instantiate()
 	new_tower.set_script(tower_stats.tower_script)
 	new_tower.tower_stats = tower_stats
-	new_tower.position = tile_cursor.position
+	new_tower.position = tile_cursor.position + HALF_TILE_SIZE
 	map.add_child(new_tower)
 
 func _on_enemy_died(enemy_stats: EnemyStats):

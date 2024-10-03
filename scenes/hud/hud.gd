@@ -11,7 +11,7 @@ func _ready() -> void:
 	Events.tower_selected.connect(_on_tower_selected)
 	_on_tower_selected(null)
 	Events.wave_ended.connect(_on_wave_ended)
-	game_stats.game_stats_changed.connect(_on_game_stats_changed)
+	game_stats.changed.connect(_on_game_stats_changed)
 	_on_game_stats_changed()
 	Events.game_lost.connect(_on_game_lost)
 

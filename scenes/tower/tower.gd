@@ -10,9 +10,11 @@ extends Node2D
 var current_targets: Array[Enemy]
 
 func _ready() -> void:
-	sprite.texture = tower_stats.texture
+	if not tower_stats:
+		return
 	range_shape.shape = RectangleShape2D.new()
-	range_shape.shape.set_size(Main.TILE_SIZE * (1+2*tower_stats.attack_range))
+	tower_stats.changed.connect(_on_tower_stats_changed)
+	_on_tower_stats_changed()
 
 func locate_targets() -> Array[Enemy]:
 	var candidates: Array[Enemy]
@@ -27,3 +29,7 @@ func locate_targets() -> Array[Enemy]:
 
 func _attack(_delta: float) -> void:
 	assert(false, "Abstract `attack` function not overridden in Tower")
+
+func _on_tower_stats_changed():
+	sprite.texture = tower_stats.texture
+	range_shape.shape.set_size(Main.TILE_SIZE * (1+2*tower_stats.attack_range))

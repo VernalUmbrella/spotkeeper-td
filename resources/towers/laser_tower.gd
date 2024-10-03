@@ -8,8 +8,8 @@ func _ready() -> void:
 	laser = Line2D.new()
 	laser.width = 1
 	laser.default_color = tower_stats.attack_color
-	laser.add_point(Main.HALF_TILE_SIZE)
-	laser.add_point(Main.HALF_TILE_SIZE)
+	laser.add_point(Vector2.ZERO)
+	laser.add_point(Vector2.ZERO)
 	laser.z_index = 5
 	laser.visible = false
 	self.add_child(laser)
