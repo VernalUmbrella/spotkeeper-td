@@ -46,14 +46,13 @@ func update_cursor() -> void:
 	tile_cursor.visible = false
 	if hovered_tile.x not in range(BOARD_DIMENSIONS.x) or hovered_tile.y not in range(BOARD_DIMENSIONS.y):
 		return
-	if map.get_cell_tile_data(hovered_tile).get_custom_data("buildable"):
+	tile_cursor.position = (mouse_position - HALF_TILE_SIZE).snapped(TILE_SIZE)
+	if map.get_cell_tile_data(hovered_tile).get_custom_data("buildable") and not tile_cursor.get_overlapping_areas():
 		tile_cursor.visible = true
-		tile_cursor.position = (mouse_position - HALF_TILE_SIZE).snapped(TILE_SIZE)
+		
 
 func place_tower(tower_stats: TowerStats) -> void:
 	if not tile_cursor.visible:
-		return
-	if tile_cursor.get_overlapping_areas():
 		return
 	if game_stats.money < tower_stats.cost:
 		# TODO: flash money red, play sound

@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://cu0rx3w7pnvsb"]
+
+[ext_resource type="Script" path="res://main/tower_ghost.gd" id="1_2glet"]
+[ext_resource type="StyleBox" uid="uid://b2soc2iaxwu56" path="res://game_objects/towers/range_indicator.tres" id="2_mow38"]
+
+[node name="TowerGhost" type="Node2D" groups=["towers"]]
+position = Vector2(4, 4)
+script = ExtResource("1_2glet")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.498039)
+
+[node name="RangeIndicator" type="Panel" parent="."]
+z_index = 2
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = ExtResource("2_mow38")

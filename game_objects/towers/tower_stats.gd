@@ -8,7 +8,12 @@ enum TargetingMode {
 }
 
 @export_group("Visuals")
-@export var texture: Texture2D
+@export var texture: Texture2D:
+	set(value):
+		if texture == value:
+			return
+		texture = value
+		emit_changed()
 @export var attack_color: Color
 @export var name: String
 @export_group("Attributes")
