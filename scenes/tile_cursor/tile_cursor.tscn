@@ -1,6 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://b3j20yagie20j"]
-
-[ext_resource type="Script" path="res://scenes/tile_cursor/tile_cursor.gd" id="1_lfi4f"]
+[gd_scene load_steps=4 format=3 uid="uid://b3j20yagie20j"]
 
 [sub_resource type="Gradient" id="Gradient_675pw"]
 offsets = PackedFloat32Array(0.525974, 1)
@@ -18,7 +16,8 @@ fill_to = Vector2(1, 1)
 size = Vector2(8, 8)
 
 [node name="TileCursor" type="Area2D"]
-script = ExtResource("1_lfi4f")
+collision_layer = 0
+collision_mask = 8
 
 [node name="Sprite" type="Sprite2D" parent="."]
 position = Vector2(4, 4)

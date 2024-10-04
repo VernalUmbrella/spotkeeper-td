@@ -19,11 +19,8 @@ func _ready() -> void:
 func locate_targets() -> Array[Enemy]:
 	var candidates: Array[Enemy]
 	for overlapper: Area2D in range_area.get_overlapping_areas():
-		var area_owner = overlapper.get_parent() #TODO: rework to avoid get_parent?
-		if area_owner is not Enemy:
-			continue
-		if area_owner.is_in_group("enemies"):
-			candidates.append(area_owner)
+		var area_owner: Enemy = overlapper.get_parent() #TODO: rework to avoid get_parent?
+		candidates.append(area_owner)
 	candidates.sort_custom(func(a: Enemy, b: Enemy) -> bool: return a.progress > b.progress)
 	return candidates.slice(0, tower_stats.max_targets)
 

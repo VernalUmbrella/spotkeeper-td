@@ -16,7 +16,7 @@ const TOWER_RESOURCES: Array[TowerStats] = [
 @export var game_stats: GameStats
 
 @onready var map: TileMapLayer = $Map
-@onready var tile_cursor: TileCursor = $Map/TileCursor
+@onready var tile_cursor: Area2D = $Map/TileCursor
 @onready var enemy_path: EnemyPath = $EnemyPath
 @onready var hud: HUD = $CanvasLayer/HUD
 
@@ -51,6 +51,8 @@ func update_cursor() -> void:
 
 func place_tower(tower_stats: TowerStats) -> void:
 	if not tile_cursor.visible:
+		return
+	if tile_cursor.get_overlapping_areas():
 		return
 	if game_stats.money < tower_stats.cost:
 		# TODO: flash money red, play sound

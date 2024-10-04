@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://dqf15m1xfb8px"]
+[gd_scene load_steps=6 format=3 uid="uid://dqf15m1xfb8px"]
 
 [ext_resource type="Script" path="res://scenes/tower/tower.gd" id="1_fpuou"]
 
@@ -12,6 +12,9 @@ height = 8
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w502h"]
 size = Vector2(40, 40)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m7ant"]
+size = Vector2(4, 4)
+
 [node name="Tower" type="Node2D" groups=["towers"]]
 script = ExtResource("1_fpuou")
 
@@ -19,6 +22,15 @@ script = ExtResource("1_fpuou")
 texture = SubResource("GradientTexture2D_6h8kg")
 
 [node name="AttackRange" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackRange"]
 shape = SubResource("RectangleShape2D_w502h")
+
+[node name="Tile" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tile"]
+shape = SubResource("RectangleShape2D_m7ant")
