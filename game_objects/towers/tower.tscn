@@ -19,8 +19,10 @@ size = Vector2(8, 8)
 [node name="Tower" type="Node2D" groups=["towers"]]
 script = ExtResource("1_fpuou")
 
-[node name="Sprite" type="Sprite2D" parent="."]
+[node name="StaticSprite" type="Sprite2D" parent="."]
 texture = SubResource("GradientTexture2D_6h8kg")
+
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
 
 [node name="RangeIndicator" type="Panel" parent="."]
 modulate = Color(1, 1, 1, 0)

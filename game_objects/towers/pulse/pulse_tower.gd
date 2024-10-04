@@ -21,6 +21,7 @@ func _ready() -> void:
 	pulse_visual.z_index = 5
 	pulse_visual.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	add_child(pulse_visual)
+	sprite.play("default")
 
 func _process(delta: float) -> void:
 	current_targets = locate_targets()

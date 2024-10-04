@@ -5,7 +5,7 @@ extends Node2D
 	set(value):
 		tower_stats = value.clone()
 
-@onready var sprite: Sprite2D = $Sprite
+@onready var sprite: AnimatedSprite2D = $Sprite
 @onready var range_area: Area2D = $AttackRange
 @onready var range_shape: CollisionShape2D = $AttackRange/CollisionShape2D
 @onready var range_indicator: Panel = $RangeIndicator
@@ -39,7 +39,7 @@ func _attack(_delta: float) -> void:
 	assert(false, "Abstract `attack` function not overridden in Tower")
 
 func _on_tower_stats_changed():
-	sprite.texture = tower_stats.texture
+	sprite.sprite_frames = tower_stats.sprite_frames
 	var range_size: Vector2 = Main.TILE_SIZE * (1+2*tower_stats.attack_range)
 	range_shape.shape.set_size(range_size)
 	range_indicator.size = range_size

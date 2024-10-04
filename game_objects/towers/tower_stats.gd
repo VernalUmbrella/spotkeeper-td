@@ -14,6 +14,7 @@ enum TargetingMode {
 			return
 		texture = value
 		emit_changed()
+@export var sprite_frames: SpriteFrames
 @export var attack_color: Color
 @export var name: String
 @export_group("Attributes")
@@ -29,6 +30,7 @@ enum TargetingMode {
 func clone() -> TowerStats:
 	var output := TowerStats.new()
 	output.texture = texture
+	output.sprite_frames = sprite_frames
 	output.attack_color = attack_color
 	output.name = name
 	output.cost = cost

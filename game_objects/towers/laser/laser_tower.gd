@@ -18,7 +18,9 @@ func _process(delta: float) -> void:
 func _attack(delta: float) -> void:
 	laser.clear_points()
 	if not current_targets:
+		sprite.play("default")
 		return
+	sprite.play("firing")
 	for i in range(len(current_targets)):
 		laser.add_point(Vector2.ZERO)
 		var t: Enemy = current_targets[i]
