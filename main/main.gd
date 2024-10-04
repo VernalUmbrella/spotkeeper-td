@@ -14,7 +14,13 @@ const TOWER_RESOURCES: Array[TowerStats] = [
 	preload("res://game_objects/towers/gamma/gamma_tower.tres"),
 ]
 
-@export var game_stats: GameStats
+@export var game_stats: GameStats:
+	set(value):
+		game_stats = value
+		if not is_node_ready():
+			await ready
+		hud.game_stats = value
+		enemy_path.game_stats = value
 
 @onready var map: TileMapLayer = $Map
 @onready var tile_cursor: Area2D = $Map/TileCursor
@@ -28,7 +34,6 @@ func _ready() -> void:
 	Events.enemy_died.connect(_on_enemy_died)
 	Events.enemy_leaked.connect(_on_enemy_leaked)
 	Events.tower_selected.connect(_on_tower_selected)
-	enemy_path.game_stats = game_stats
 
 func _process(_delta: float) -> void:
 	update_cursor()

@@ -1,0 +1,133 @@
+[gd_scene load_steps=8 format=3 uid="uid://r2cu187xsv2p"]
+
+[ext_resource type="Script" path="res://ui/title_screen/title_screen.gd" id="1_74keb"]
+[ext_resource type="Script" path="res://main/game_stats/game_stats.gd" id="2_dast6"]
+[ext_resource type="StyleBox" uid="uid://igtdb8ap4838" path="res://ui/panel_base.tres" id="2_ppibo"]
+[ext_resource type="PackedScene" uid="uid://ccmqm7fx46umd" path="res://main/main.tscn" id="2_yok57"]
+[ext_resource type="Resource" uid="uid://d0312etcm2x63" path="res://main/game_stats/hard_stats.tres" id="3_toq54"]
+[ext_resource type="Resource" uid="uid://d0cebgj7cj7nn" path="res://main/game_stats/medium_stats.tres" id="4_bmyor"]
+[ext_resource type="Resource" uid="uid://dnlk6dm14k4rn" path="res://main/game_stats/easy_stats.tres" id="5_mytur"]
+
+[node name="TitleScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_74keb")
+difficulties = Array[ExtResource("2_dast6")]([null, ExtResource("3_toq54"), ExtResource("4_bmyor"), ExtResource("5_mytur")])
+next_scene = ExtResource("2_yok57")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.443469, 0.0441714, 0.00962374, 1)
+
+[node name="CoinLabel" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -8.0
+offset_right = 40.0
+grow_vertical = 0
+text = "COINS 0"
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -30.5
+offset_top = -22.0
+offset_right = 30.5
+offset_bottom = 22.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="TitleText" type="Label" parent="MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Vaporcade TD"
+horizontal_alignment = 1
+
+[node name="CoinButton" type="Button" parent="MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+focus_mode = 0
+text = "INSERT COIN"
+
+[node name="StartButton" type="Button" parent="MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+focus_mode = 0
+disabled = true
+text = "START"
+
+[node name="CreditsButton" type="Button" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+focus_mode = 0
+text = "CREDITS"
+
+[node name="CreditsPanel" type="Panel" parent="."]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(112, 80)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = ExtResource("2_ppibo")
+
+[node name="MarginContainer" type="MarginContainer" parent="CreditsPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="CreditsText" type="Label" parent="CreditsPanel/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 1
+text = "VernalUmbrella
+- Programming
+sullybeardman
+- Art, Sound
+Made in Godot 4
+Freezeframe Condensed
+font by Bekoha"
+horizontal_alignment = 1
+clip_text = true
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/CoinButton" to="." method="_on_coin_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/CreditsButton" to="." method="_on_credits_button_pressed"]

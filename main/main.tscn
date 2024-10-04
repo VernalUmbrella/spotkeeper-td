@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=4 uid="uid://ccmqm7fx46umd"]
 
 [ext_resource type="Script" path="res://main/main.gd" id="1_174vw"]
-[ext_resource type="Resource" uid="uid://dnlk6dm14k4rn" path="res://main/starting_game_stats.tres" id="2_q0308"]
+[ext_resource type="Resource" uid="uid://dnlk6dm14k4rn" path="res://main/game_stats/easy_stats.tres" id="2_q0308"]
 [ext_resource type="TileSet" uid="uid://b102junxjpjmf" path="res://main/tileset.tres" id="2_qrnp7"]
 [ext_resource type="PackedScene" uid="uid://b3j20yagie20j" path="res://main/tile_cursor.tscn" id="3_3wfm8"]
 [ext_resource type="PackedScene" uid="uid://b8wrls8mbvp8i" path="res://ui/hud/hud.tscn" id="4_8n207"]

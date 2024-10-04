@@ -1,7 +1,14 @@
 class_name HUD
 extends VBoxContainer
 
-@export var game_stats: GameStats
+@export var game_stats: GameStats:
+	set(value):
+		if not is_node_ready():
+			await ready
+		game_stats = value
+		if not game_stats.changed.is_connected(_on_game_stats_changed):
+			game_stats.changed.connect(_on_game_stats_changed)
+		_on_game_stats_changed()
 
 @onready var money_lives_label: RichTextLabel = %MoneyLivesLabel
 @onready var tooltip: Label = %Tooltip
@@ -11,8 +18,6 @@ func _ready() -> void:
 	Events.tower_selected.connect(_on_tower_selected)
 	_on_tower_selected(null)
 	Events.wave_ended.connect(_on_wave_ended)
-	game_stats.changed.connect(_on_game_stats_changed)
-	_on_game_stats_changed()
 	Events.game_lost.connect(_on_game_lost)
 
 func _input(event: InputEvent) -> void:
