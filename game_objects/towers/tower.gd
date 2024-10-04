@@ -1,7 +1,9 @@
 class_name Tower
 extends Node2D
 
-@export var tower_stats: TowerStats # TODO: this assumes it will never change
+@export var tower_stats: TowerStats:
+	set(value):
+		tower_stats = value.clone()
 
 @onready var sprite: Sprite2D = $Sprite
 @onready var range_area: Area2D = $AttackRange

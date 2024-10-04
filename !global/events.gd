@@ -6,3 +6,4 @@ signal tower_selected(tower_stats: TowerStats)
 signal wave_started()
 signal wave_ended()
 signal game_lost()
+signal game_won

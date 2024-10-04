@@ -16,11 +16,11 @@ const TOWER_RESOURCES: Array[TowerStats] = [
 
 @export var game_stats: GameStats:
 	set(value):
-		game_stats = value
+		game_stats = value.clone()
 		if not is_node_ready():
 			await ready
-		hud.game_stats = value
-		enemy_path.game_stats = value
+		hud.game_stats = game_stats
+		enemy_path.game_stats = game_stats
 
 @onready var map: TileMapLayer = $Map
 @onready var tile_cursor: Area2D = $Map/TileCursor

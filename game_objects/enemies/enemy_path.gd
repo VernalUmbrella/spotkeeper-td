@@ -35,6 +35,8 @@ func end_wave() -> void:
 	active = false
 	game_stats.current_wave += 1
 	Events.wave_ended.emit()
+	if game_stats.current_wave >= game_stats.wave_sequence.size():
+		Events.game_won.emit()
 
 func _on_spawn_timer_timeout() -> void:
 	var new_spawn = EnemyScene.instantiate()

@@ -25,3 +25,17 @@ enum TargetingMode {
 @export var max_targets: int
 @export var targeting_mode: TargetingMode
 @export var tower_script: Script
+
+func clone() -> TowerStats:
+	var output := TowerStats.new()
+	output.texture = texture
+	output.attack_color = attack_color
+	output.name = name
+	output.cost = cost
+	output.damage = damage
+	output.attacks_per_second = attacks_per_second
+	output.attack_range = attack_range
+	output.max_targets = max_targets
+	output.targeting_mode = targeting_mode
+	output.tower_script = tower_script
+	return output
