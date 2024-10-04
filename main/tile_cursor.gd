@@ -8,7 +8,7 @@ func _ready() -> void:
 
 func _on_tower_selected(tower_stats: TowerStats):
 	if not tower_stats:
-		tower_ghost.visible = false
+		tower_ghost.hide()
 		return
-	tower_ghost.visible = true
+	tower_ghost.show()
 	tower_ghost.tower_stats = tower_stats
