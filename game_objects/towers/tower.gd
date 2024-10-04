@@ -32,7 +32,9 @@ func locate_targets() -> Array[Enemy]:
 		TowerStats.TargetingMode.FIRST:
 			candidates.sort_custom(func(a: Enemy, b: Enemy) -> bool: return a.progress > b.progress)
 		TowerStats.TargetingMode.STRONGEST:
-			candidates.sort_custom(func(a: Enemy, b: Enemy) -> bool: return a.current_health > b.current_health)
+			candidates.sort_custom(func(a: Enemy, b: Enemy) -> bool:
+					return a.current_health > b.current_health or (a.current_health == b.current_health and a.progress > b.progress)
+			)
 	return candidates.slice(0, tower_stats.max_targets)
 
 func _attack(_delta: float) -> void:
