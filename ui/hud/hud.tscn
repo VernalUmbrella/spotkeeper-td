@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://b8wrls8mbvp8i"]
+[gd_scene load_steps=14 format=3 uid="uid://b8wrls8mbvp8i"]
 
 [ext_resource type="Theme" uid="uid://dljh7gpbntv8f" path="res://ui/global_theme.tres" id="1_pkt7u"]
 [ext_resource type="Script" path="res://ui/hud/hud.gd" id="1_vad6r"]
@@ -7,6 +7,7 @@
 [ext_resource type="Resource" uid="uid://7voeqhthrrmn" path="res://game_objects/towers/laser/laser_tower.tres" id="4_6f0sp"]
 [ext_resource type="Resource" uid="uid://bderd3qgjtoq" path="res://game_objects/towers/pulse/pulse_tower.tres" id="5_0vkf1"]
 [ext_resource type="Resource" uid="uid://dsyxqm4ckg5oy" path="res://game_objects/towers/gamma/gamma_tower.tres" id="6_41mfy"]
+[ext_resource type="Resource" uid="uid://cng5hjf2visvo" path="res://game_objects/towers/railgun/railgun_tower.tres" id="6_85qpw"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pt5df"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -99,11 +100,12 @@ tower_stats = ExtResource("5_0vkf1")
 layout_mode = 2
 texture_normal = SubResource("GradientTexture2D_q840n")
 script = ExtResource("3_q8wr8")
-tower_stats = ExtResource("6_41mfy")
+tower_stats = ExtResource("6_85qpw")
 
-[node name="DemolishButton" type="TextureButton" parent="HBar/MarginContainer/HBoxContainer/GridContainer"]
+[node name="GammaTower" type="TextureButton" parent="HBar/MarginContainer/HBoxContainer/GridContainer"]
 layout_mode = 2
 script = ExtResource("3_q8wr8")
+tower_stats = ExtResource("6_41mfy")
 
 [node name="VSeparator2" type="VSeparator" parent="HBar/MarginContainer/HBoxContainer"]
 layout_mode = 2
