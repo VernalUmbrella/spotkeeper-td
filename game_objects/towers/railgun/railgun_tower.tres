@@ -1,13 +1,24 @@
-[gd_resource type="Resource" script_class="TowerStats" load_steps=2 format=3 uid="uid://cng5hjf2visvo"]
+[gd_resource type="Resource" script_class="TowerStats" load_steps=5 format=3 uid="uid://cng5hjf2visvo"]
 
 [ext_resource type="Script" path="res://game_objects/towers/tower_stats.gd" id="1_djr23"]
+[ext_resource type="Script" path="res://game_objects/towers/railgun/railgun_tower.gd" id="2_xjeot"]
+
+[sub_resource type="Gradient" id="Gradient_ilx4a"]
+colors = PackedColorArray(0, 0, 0, 1, 1, 0.188235, 0.156863, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ikidk"]
+gradient = SubResource("Gradient_ilx4a")
+width = 8
+height = 8
 
 [resource]
 script = ExtResource("1_djr23")
-attack_color = Color(0, 0, 0, 1)
+texture = SubResource("GradientTexture2D_ikidk")
+attack_color = Color(1, 0, 0.596078, 1)
 name = "Railgun"
 cost = 40
 damage = 12.0
 attacks_per_second = 0.4
 attack_range = 5.0
 max_targets = 1
+tower_script = ExtResource("2_xjeot")
