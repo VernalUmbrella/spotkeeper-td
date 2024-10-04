@@ -19,6 +19,7 @@ func _ready() -> void:
 	pulse_visual.position = -(pulse_visual.size / 2)
 	pulse_visual.modulate = Color.TRANSPARENT
 	pulse_visual.z_index = 5
+	pulse_visual.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	add_child(pulse_visual)
 
 func _process(delta: float) -> void:
