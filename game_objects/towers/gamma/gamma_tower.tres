@@ -21,4 +21,5 @@ damage = 5.0
 attacks_per_second = 0.0
 attack_range = 4.0
 max_targets = 2
+targeting_mode = 0
 tower_script = ExtResource("2_luh1p")

@@ -21,4 +21,5 @@ damage = 12.0
 attacks_per_second = 0.4
 attack_range = 5.0
 max_targets = 1
+targeting_mode = 1
 tower_script = ExtResource("2_xjeot")

@@ -1,6 +1,12 @@
 class_name TowerStats
 extends Resource
 
+enum TargetingMode {
+	FIRST,
+	STRONGEST,
+	NONE,
+}
+
 @export_group("Visuals")
 @export var texture: Texture2D
 @export var attack_color: Color
@@ -12,4 +18,5 @@ extends Resource
 @export var attacks_per_second: float
 @export var attack_range: float
 @export var max_targets: int
+@export var targeting_mode: TargetingMode
 @export var tower_script: Script
