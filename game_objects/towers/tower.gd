@@ -45,7 +45,6 @@ func _on_tower_stats_changed():
 	range_indicator.size = range_size
 	range_indicator.set_position(-range_size / 2)
 
-
 func _on_tile_mouse_entered() -> void:
 	if tween:
 		tween.kill()

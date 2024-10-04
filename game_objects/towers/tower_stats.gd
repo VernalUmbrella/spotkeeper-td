@@ -22,7 +22,7 @@ enum TargetingMode {
 ## This property is ignored on towers with continuous firing.
 @export var attacks_per_second: float
 @export var attack_range: float
-@export var max_targets: int
+@export var max_targets: int = 1
 @export var targeting_mode: TargetingMode
 @export var tower_script: Script
 

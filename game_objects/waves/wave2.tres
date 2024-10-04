@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Wave" load_steps=3 format=3 uid="uid://dhbpgbt42s8xl"]
+
+[ext_resource type="Resource" uid="uid://b38405e356dbn" path="res://game_objects/enemies/slouch.tres" id="1_60n0h"]
+[ext_resource type="Script" path="res://game_objects/waves/wave.gd" id="2_nlwbd"]
+
+[resource]
+script = ExtResource("2_nlwbd")
+enemy_stats = ExtResource("1_60n0h")
+count = 15
+spawn_interval = 1.5

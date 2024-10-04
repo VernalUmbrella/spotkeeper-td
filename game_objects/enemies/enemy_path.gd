@@ -4,6 +4,7 @@ extends Path2D
 const EnemyScene = preload("res://game_objects/enemies/enemy.tscn")
 
 @export var game_stats: GameStats
+
 @onready var spawn_timer: Timer = $SpawnTimer
 
 var current_wave: Wave:
@@ -11,6 +12,7 @@ var current_wave: Wave:
 		if game_stats.current_wave >= len(game_stats.wave_sequence):
 			return null
 		return game_stats.wave_sequence[game_stats.current_wave]
+var current_spawn: EnemyStats
 var remaining_spawns: int = 0
 var active: bool = false
 
@@ -28,6 +30,9 @@ func _on_wave_started() -> void:
 		return
 	active = true
 	remaining_spawns = current_wave.count
+	current_spawn = current_wave.enemy_stats.clone()
+	current_spawn.max_health *= current_wave.health_multiplier
+	current_spawn.speed *= current_wave.speed_multiplier
 	spawn_timer.wait_time = current_wave.spawn_interval
 	spawn_timer.start()
 
@@ -40,7 +45,7 @@ func end_wave() -> void:
 
 func _on_spawn_timer_timeout() -> void:
 	var new_spawn = EnemyScene.instantiate()
-	new_spawn.enemy_stats = current_wave.enemy_stats
+	new_spawn.enemy_stats = current_spawn
 	add_child(new_spawn)
 	remaining_spawns -= 1
 	if remaining_spawns <= 0:
