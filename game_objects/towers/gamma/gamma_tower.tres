@@ -1,15 +1,24 @@
-[gd_resource type="Resource" script_class="TowerStats" load_steps=3 format=3 uid="uid://dsyxqm4ckg5oy"]
+[gd_resource type="Resource" script_class="TowerStats" load_steps=5 format=3 uid="uid://dsyxqm4ckg5oy"]
 
 [ext_resource type="Script" path="res://game_objects/towers/tower_stats.gd" id="1_5roya"]
 [ext_resource type="Script" path="res://game_objects/towers/laser/laser_tower.gd" id="2_luh1p"]
 
+[sub_resource type="Gradient" id="Gradient_vmdg4"]
+colors = PackedColorArray(0, 1, 0, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_3evdv"]
+gradient = SubResource("Gradient_vmdg4")
+width = 8
+height = 8
+
 [resource]
 script = ExtResource("1_5roya")
+texture = SubResource("GradientTexture2D_3evdv")
 attack_color = Color(1, 0, 0, 1)
 name = "Gamma"
 cost = 100
 damage = 5.0
-attacks_per_second = 1.0
+attacks_per_second = 0.0
 attack_range = 4.0
 max_targets = 2
 tower_script = ExtResource("2_luh1p")

@@ -1,17 +1,17 @@
 [gd_resource type="Resource" script_class="TowerStats" load_steps=4 format=3 uid="uid://7voeqhthrrmn"]
 
-[ext_resource type="Script" path="res://game_objects/towers/tower_stats.gd" id="1_wiv86"]
-[ext_resource type="Texture2D" uid="uid://dcb0c75et5fo2" path="res://game_objects/towers/laser/tower_00.png" id="2_vcdwl"]
-[ext_resource type="Script" path="res://game_objects/towers/laser/laser_tower.gd" id="3_kmhwe"]
+[ext_resource type="Script" path="res://game_objects/towers/tower_stats.gd" id="1_oiour"]
+[ext_resource type="Texture2D" uid="uid://dcb0c75et5fo2" path="res://game_objects/towers/laser/tower_00.png" id="2_w1rov"]
+[ext_resource type="Script" path="res://game_objects/towers/laser/laser_tower.gd" id="3_nwy2r"]
 
 [resource]
-script = ExtResource("1_wiv86")
-texture = ExtResource("2_vcdwl")
+script = ExtResource("1_oiour")
+texture = ExtResource("2_w1rov")
 attack_color = Color(0, 1, 1, 1)
 name = "Laser"
 cost = 10
 damage = 1.0
-attacks_per_second = 1.0
+attacks_per_second = 0.0
 attack_range = 2.0
 max_targets = 1
-tower_script = ExtResource("3_kmhwe")
+tower_script = ExtResource("3_nwy2r")
