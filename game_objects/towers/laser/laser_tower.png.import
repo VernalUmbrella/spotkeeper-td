@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dcb0c75et5fo2"
-path="res://.godot/imported/tower_00.png-aa351ad332628292064fc610e4bbf0a1.ctex"
+path="res://.godot/imported/laser_tower.png-4b3c264639d2ff30c4d475e418391d04.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://game_objects/towers/laser/tower_00.png"
-dest_files=["res://.godot/imported/tower_00.png-aa351ad332628292064fc610e4bbf0a1.ctex"]
+source_file="res://game_objects/towers/laser/laser_tower.png"
+dest_files=["res://.godot/imported/laser_tower.png-4b3c264639d2ff30c4d475e418391d04.ctex"]
 
 [params]
 

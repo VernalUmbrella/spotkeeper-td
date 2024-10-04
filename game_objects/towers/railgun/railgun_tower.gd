@@ -16,14 +16,20 @@ func _ready() -> void:
 	shot.default_color = tower_stats.attack_color
 	shot.width = 2
 	add_child(shot)
+	sprite.play("default")
 
 func _process(delta: float) -> void:
 	current_targets = locate_targets()
 	_attack(delta)
 
 func _attack(_delta: float) -> void:
-	if not attack_timer.is_stopped() or not current_targets:
+	if not attack_timer.is_stopped():
 		return
+	if not current_targets:
+		sprite.play("default")
+		return
+	print("I'M A CHARGIN MY LASER")
+	sprite.play("charging") # TODO for some reason the animation doesn't reset sometimes
 	attack_timer.start()
 	shot.clear_points()
 	for t: Enemy in current_targets:

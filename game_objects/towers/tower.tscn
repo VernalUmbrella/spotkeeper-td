@@ -20,6 +20,7 @@ size = Vector2(8, 8)
 script = ExtResource("1_fpuou")
 
 [node name="StaticSprite" type="Sprite2D" parent="."]
+visible = false
 texture = SubResource("GradientTexture2D_6h8kg")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]

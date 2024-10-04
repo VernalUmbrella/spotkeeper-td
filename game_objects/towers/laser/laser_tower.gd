@@ -20,7 +20,8 @@ func _attack(delta: float) -> void:
 	if not current_targets:
 		sprite.play("default")
 		return
-	sprite.play("firing")
+	if sprite.sprite_frames.has_animation("firing"):
+		sprite.play("firing")
 	for i in range(len(current_targets)):
 		laser.add_point(Vector2.ZERO)
 		var t: Enemy = current_targets[i]

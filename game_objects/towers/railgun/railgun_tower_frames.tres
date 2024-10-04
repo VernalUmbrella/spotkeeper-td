@@ -1,0 +1,44 @@
+[gd_resource type="SpriteFrames" load_steps=6 format=3 uid="uid://ch8emgaq6k2jt"]
+
+[ext_resource type="Texture2D" uid="uid://joj8jcd6dq70" path="res://game_objects/towers/railgun/railgun_tower_tiles.png" id="1_vdkhg"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e50u0"]
+atlas = ExtResource("1_vdkhg")
+region = Rect2(16, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_607xo"]
+atlas = ExtResource("1_vdkhg")
+region = Rect2(24, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_okn2s"]
+atlas = ExtResource("1_vdkhg")
+region = Rect2(32, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w3swy"]
+atlas = ExtResource("1_vdkhg")
+region = Rect2(0, 0, 8, 8)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e50u0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_607xo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_okn2s")
+}],
+"loop": false,
+"name": &"charging",
+"speed": 1.2
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w3swy")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]

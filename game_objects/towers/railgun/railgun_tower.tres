@@ -1,19 +1,18 @@
-[gd_resource type="Resource" script_class="TowerStats" load_steps=5 format=3 uid="uid://cng5hjf2visvo"]
+[gd_resource type="Resource" script_class="TowerStats" load_steps=6 format=3 uid="uid://cng5hjf2visvo"]
 
 [ext_resource type="Script" path="res://game_objects/towers/tower_stats.gd" id="1_djr23"]
+[ext_resource type="SpriteFrames" uid="uid://ch8emgaq6k2jt" path="res://game_objects/towers/railgun/railgun_tower_frames.tres" id="2_oaary"]
 [ext_resource type="Script" path="res://game_objects/towers/railgun/railgun_tower.gd" id="2_xjeot"]
+[ext_resource type="Texture2D" uid="uid://joj8jcd6dq70" path="res://game_objects/towers/railgun/railgun_tower_tiles.png" id="3_e2d0o"]
 
-[sub_resource type="Gradient" id="Gradient_ilx4a"]
-colors = PackedColorArray(0, 0, 0, 1, 1, 0.188235, 0.156863, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_ikidk"]
-gradient = SubResource("Gradient_ilx4a")
-width = 8
-height = 8
+[sub_resource type="AtlasTexture" id="AtlasTexture_8raxe"]
+atlas = ExtResource("3_e2d0o")
+region = Rect2(0, 0, 8, 8)
 
 [resource]
 script = ExtResource("1_djr23")
-texture = SubResource("GradientTexture2D_ikidk")
+texture = SubResource("AtlasTexture_8raxe")
+sprite_frames = ExtResource("2_oaary")
 attack_color = Color(1, 0, 0.596078, 1)
 name = "Railgun"
 cost = 40
