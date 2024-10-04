@@ -73,7 +73,9 @@ func _on_enemy_died(enemy_stats: EnemyStats):
 	game_stats.money += enemy_stats.loot
 
 func _on_enemy_leaked():
-	game_stats.lives_left -= 1
+	if game_stats.lives_left > 0:
+		game_stats.lives_left -= 1
 
 func _on_tower_selected(tower_stats: TowerStats):
 	selected_tower = tower_stats
+	

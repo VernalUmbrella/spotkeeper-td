@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://r2cu187xsv2p"]
+[gd_scene load_steps=9 format=3 uid="uid://r2cu187xsv2p"]
 
 [ext_resource type="Script" path="res://ui/title_screen/title_screen.gd" id="1_74keb"]
 [ext_resource type="Script" path="res://main/game_stats/game_stats.gd" id="2_dast6"]
@@ -7,6 +7,7 @@
 [ext_resource type="Resource" uid="uid://d0312etcm2x63" path="res://main/game_stats/hard_stats.tres" id="3_toq54"]
 [ext_resource type="Resource" uid="uid://d0cebgj7cj7nn" path="res://main/game_stats/medium_stats.tres" id="4_bmyor"]
 [ext_resource type="Resource" uid="uid://dnlk6dm14k4rn" path="res://main/game_stats/easy_stats.tres" id="5_mytur"]
+[ext_resource type="Script" path="res://ui/title_screen/coin_label.gd" id="7_sc68d"]
 
 [node name="TitleScreen" type="Control"]
 layout_mode = 3
@@ -34,10 +35,17 @@ layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_top = -8.0
-offset_right = 40.0
+offset_left = 2.0
+offset_top = -10.0
+offset_right = 42.0
+offset_bottom = -2.0
 grow_vertical = 0
 text = "COINS 0"
+script = ExtResource("7_sc68d")
+
+[node name="Timer" type="Timer" parent="CoinLabel"]
+wait_time = 0.667
+autostart = true
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 custom_minimum_size = Vector2(80, 0)
@@ -128,6 +136,7 @@ font by Bekoha"
 horizontal_alignment = 1
 clip_text = true
 
+[connection signal="timeout" from="CoinLabel/Timer" to="CoinLabel" method="_on_timer_timeout"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/CoinButton" to="." method="_on_coin_button_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/CreditsButton" to="." method="_on_credits_button_pressed"]

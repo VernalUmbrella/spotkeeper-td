@@ -1,5 +1,5 @@
 class_name HUD
-extends VBoxContainer
+extends Control
 
 @export var game_stats: GameStats:
 	set(value):
@@ -13,6 +13,7 @@ extends VBoxContainer
 @onready var money_lives_label: RichTextLabel = %MoneyLivesLabel
 @onready var tooltip: Label = %Tooltip
 @onready var wave_button: Button = %WaveButton
+@onready var you_died: Panel = %YouDied
 
 func _ready() -> void:
 	Events.tower_selected.connect(_on_tower_selected)
@@ -50,4 +51,13 @@ func _on_wave_ended() -> void:
 	wave_button.disabled = false
 
 func _on_game_lost() -> void:
-	tooltip.text = "YOU DIED"
+	var tween := create_tween()
+	you_died.visible = true
+	tween.tween_property(you_died, "modulate", Color.WHITE, 1.8).from(Color.TRANSPARENT)
+	tween.tween_interval(3)
+	tween.tween_callback(reset_game)
+
+func reset_game() -> void:
+	get_tree().change_scene_to_file("res://ui/title_screen/title_screen.tscn")
+	for main_scene in get_tree().get_nodes_in_group("main"):
+		main_scene.queue_free()

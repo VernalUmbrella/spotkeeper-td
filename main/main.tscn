@@ -14,7 +14,7 @@ _data = {
 }
 point_count = 13
 
-[node name="Main" type="Node2D"]
+[node name="Main" type="Node2D" groups=["main"]]
 script = ExtResource("1_174vw")
 game_stats = ExtResource("2_q0308")
 metadata/_edit_lock_ = true
