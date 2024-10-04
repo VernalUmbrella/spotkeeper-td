@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="TowerStats" load_steps=4 format=3 uid="uid://7voeqhthrrmn"]
 
-[ext_resource type="Script" path="res://resources/towers/tower_stats.gd" id="1_wiv86"]
-[ext_resource type="Texture2D" uid="uid://dcb0c75et5fo2" path="res://assets/tower_00.png" id="2_vcdwl"]
-[ext_resource type="Script" path="res://resources/towers/laser_tower.gd" id="3_kmhwe"]
+[ext_resource type="Script" path="res://game_objects/towers/tower_stats.gd" id="1_wiv86"]
+[ext_resource type="Texture2D" uid="uid://dcb0c75et5fo2" path="res://game_objects/towers/laser/tower_00.png" id="2_vcdwl"]
+[ext_resource type="Script" path="res://game_objects/towers/laser/laser_tower.gd" id="3_kmhwe"]
 
 [resource]
 script = ExtResource("1_wiv86")

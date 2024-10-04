@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="GameStats" load_steps=5 format=3 uid="uid://dnlk6dm14k4rn"]
+
+[ext_resource type="Script" path="res://main/game_stats.gd" id="1_0hd2x"]
+[ext_resource type="Script" path="res://game_objects/waves/wave.gd" id="2_kpac8"]
+[ext_resource type="Resource" uid="uid://ckpd3m4y4gicm" path="res://game_objects/waves/wave0.tres" id="3_1ftxp"]
+[ext_resource type="Resource" uid="uid://3fobcdff3ups" path="res://game_objects/waves/wave1.tres" id="4_226o8"]
+
+[resource]
+script = ExtResource("1_0hd2x")
+money = 270
+lives_left = 10
+wave_sequence = Array[ExtResource("2_kpac8")]([ExtResource("3_1ftxp"), ExtResource("4_226o8")])
+current_wave = 0

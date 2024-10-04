@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="TowerStats" load_steps=3 format=3 uid="uid://dsyxqm4ckg5oy"]
+
+[ext_resource type="Script" path="res://game_objects/towers/tower_stats.gd" id="1_5roya"]
+[ext_resource type="Script" path="res://game_objects/towers/laser/laser_tower.gd" id="2_luh1p"]
+
+[resource]
+script = ExtResource("1_5roya")
+attack_color = Color(1, 0, 0, 1)
+name = "Gamma"
+cost = 100
+damage = 5.0
+attacks_per_second = 1.0
+attack_range = 4.0
+max_targets = 2
+tower_script = ExtResource("2_luh1p")

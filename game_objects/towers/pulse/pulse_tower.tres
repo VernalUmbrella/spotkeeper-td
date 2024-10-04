@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="TowerStats" load_steps=5 format=3 uid="uid://bderd3qgjtoq"]
 
-[ext_resource type="Script" path="res://resources/towers/tower_stats.gd" id="1_jpoek"]
-[ext_resource type="Script" path="res://resources/towers/pulse_tower.gd" id="2_ht3f4"]
+[ext_resource type="Script" path="res://game_objects/towers/tower_stats.gd" id="1_jpoek"]
+[ext_resource type="Script" path="res://game_objects/towers/pulse/pulse_tower.gd" id="2_ht3f4"]
 
 [sub_resource type="Gradient" id="Gradient_2wqvm"]
 colors = PackedColorArray(0.161251, 0.00601538, 0.00132007, 1, 1, 1, 1, 1)

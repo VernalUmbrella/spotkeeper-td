@@ -3,12 +3,12 @@
 importer="font_data_dynamic"
 type="FontFile"
 uid="uid://d2n6ayyjtt7cd"
-path="res://.godot/imported/Freezeframe-Cond.ttf-81bc00b0861fe0ec6f5c94891ba950cb.fontdata"
+path="res://.godot/imported/Freezeframe-Cond.ttf-a31d50838f28e38b9d599d4ea68baf2c.fontdata"
 
 [deps]
 
-source_file="res://assets/Freezeframe-Cond.ttf"
-dest_files=["res://.godot/imported/Freezeframe-Cond.ttf-81bc00b0861fe0ec6f5c94891ba950cb.fontdata"]
+source_file="res://ui/Freezeframe-Cond.ttf"
+dest_files=["res://.godot/imported/Freezeframe-Cond.ttf-a31d50838f28e38b9d599d4ea68baf2c.fontdata"]
 
 [params]
 

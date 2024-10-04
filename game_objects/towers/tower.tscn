@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://dqf15m1xfb8px"]
 
-[ext_resource type="Script" path="res://scenes/tower/tower.gd" id="1_fpuou"]
+[ext_resource type="Script" path="res://game_objects/towers/tower.gd" id="1_fpuou"]
 
 [sub_resource type="Gradient" id="Gradient_l4agx"]
 

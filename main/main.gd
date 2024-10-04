@@ -3,14 +3,15 @@ extends Node2D
 
 const TILE_SIZE := Vector2(8, 8)
 const HALF_TILE_SIZE := TILE_SIZE / 2
-const TowerScene = preload("res://scenes/tower/tower.tscn")
+
+const TowerScene = preload("res://game_objects/towers/tower.tscn")
 const BOARD_DIMENSIONS := Vector2i(16, 9)
 const TOWER_RESOURCES: Array[TowerStats] = [
 	null,
-	preload("res://resources/towers/laser_tower.tres"),
-	preload("res://resources/towers/pulse_tower.tres"),
-	preload("res://resources/towers/super_laser_tower.tres"),
-	preload("res://resources/towers/laser_tower.tres"),
+	preload("res://game_objects/towers/laser/laser_tower.tres"),
+	preload("res://game_objects/towers/pulse/pulse_tower.tres"),
+	preload("res://game_objects/towers/railgun/railgun_tower.tres"),
+	preload("res://game_objects/towers/gamma/gamma_tower.tres"),
 ]
 
 @export var game_stats: GameStats

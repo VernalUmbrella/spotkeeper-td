@@ -1,12 +1,12 @@
 [gd_scene load_steps=11 format=4 uid="uid://ccmqm7fx46umd"]
 
-[ext_resource type="Script" path="res://scenes/main/main.gd" id="1_174vw"]
-[ext_resource type="Resource" uid="uid://dnlk6dm14k4rn" path="res://resources/starting_game_stats.tres" id="2_q0308"]
-[ext_resource type="TileSet" uid="uid://b102junxjpjmf" path="res://scenes/main/tileset.tres" id="2_qrnp7"]
-[ext_resource type="PackedScene" uid="uid://b3j20yagie20j" path="res://scenes/tile_cursor/tile_cursor.tscn" id="3_3wfm8"]
-[ext_resource type="PackedScene" uid="uid://b8wrls8mbvp8i" path="res://scenes/hud/hud.tscn" id="4_8n207"]
-[ext_resource type="Script" path="res://scenes/enemy/enemy_path.gd" id="5_2di7r"]
-[ext_resource type="PackedScene" uid="uid://dqf15m1xfb8px" path="res://scenes/tower/tower.tscn" id="5_ek8n5"]
+[ext_resource type="Script" path="res://main/main.gd" id="1_174vw"]
+[ext_resource type="Resource" uid="uid://dnlk6dm14k4rn" path="res://main/starting_game_stats.tres" id="2_q0308"]
+[ext_resource type="TileSet" uid="uid://b102junxjpjmf" path="res://main/tileset.tres" id="2_qrnp7"]
+[ext_resource type="PackedScene" uid="uid://b3j20yagie20j" path="res://main/tile_cursor.tscn" id="3_3wfm8"]
+[ext_resource type="PackedScene" uid="uid://b8wrls8mbvp8i" path="res://ui/hud/hud.tscn" id="4_8n207"]
+[ext_resource type="Script" path="res://game_objects/enemies/enemy_path.gd" id="5_2di7r"]
+[ext_resource type="PackedScene" uid="uid://dqf15m1xfb8px" path="res://game_objects/towers/tower.tscn" id="5_ek8n5"]
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_un72q"]
 scenes/1/scene = ExtResource("5_ek8n5")

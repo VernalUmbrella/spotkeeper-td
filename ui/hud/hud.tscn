@@ -1,12 +1,12 @@
 [gd_scene load_steps=13 format=3 uid="uid://b8wrls8mbvp8i"]
 
 [ext_resource type="Theme" uid="uid://dljh7gpbntv8f" path="res://ui/global_theme.tres" id="1_pkt7u"]
-[ext_resource type="Script" path="res://scenes/hud/hud.gd" id="1_vad6r"]
-[ext_resource type="Texture2D" uid="uid://mvxm7mjirlpf" path="res://assets/enemy_00.png" id="3_08eo4"]
-[ext_resource type="Script" path="res://scenes/hud/tower_button.gd" id="3_q8wr8"]
-[ext_resource type="Resource" uid="uid://7voeqhthrrmn" path="res://resources/towers/laser_tower.tres" id="4_6f0sp"]
-[ext_resource type="Resource" uid="uid://bderd3qgjtoq" path="res://resources/towers/pulse_tower.tres" id="5_0vkf1"]
-[ext_resource type="Resource" uid="uid://dsyxqm4ckg5oy" path="res://resources/towers/super_laser_tower.tres" id="6_41mfy"]
+[ext_resource type="Script" path="res://ui/hud/hud.gd" id="1_vad6r"]
+[ext_resource type="Texture2D" uid="uid://mvxm7mjirlpf" path="res://game_objects/enemies/enemy_00.png" id="3_08eo4"]
+[ext_resource type="Script" path="res://ui/hud/tower_button.gd" id="3_q8wr8"]
+[ext_resource type="Resource" uid="uid://7voeqhthrrmn" path="res://game_objects/towers/laser/laser_tower.tres" id="4_6f0sp"]
+[ext_resource type="Resource" uid="uid://bderd3qgjtoq" path="res://game_objects/towers/pulse/pulse_tower.tres" id="5_0vkf1"]
+[ext_resource type="Resource" uid="uid://dsyxqm4ckg5oy" path="res://game_objects/towers/gamma/gamma_tower.tres" id="6_41mfy"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pt5df"]
 bg_color = Color(0.6, 0.6, 0.6, 0)

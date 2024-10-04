@@ -1,7 +1,7 @@
 class_name EnemyPath
 extends Path2D
 
-const EnemyScene = preload("res://scenes/enemy/enemy.tscn")
+const EnemyScene = preload("res://game_objects/enemies/enemy.tscn")
 
 @export var game_stats: GameStats
 @onready var spawn_timer: Timer = $SpawnTimer
