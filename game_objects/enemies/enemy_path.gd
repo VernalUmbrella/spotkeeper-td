@@ -40,7 +40,7 @@ func end_wave() -> void:
 	active = false
 	game_stats.current_wave += 1
 	Events.wave_ended.emit()
-	if game_stats.current_wave >= game_stats.wave_sequence.size():
+	if game_stats.current_wave >= game_stats.wave_sequence.size() and game_stats.lives_left > 0:
 		Events.game_won.emit()
 
 func _on_spawn_timer_timeout() -> void:

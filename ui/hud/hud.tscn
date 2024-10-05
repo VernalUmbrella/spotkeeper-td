@@ -102,23 +102,27 @@ columns = 2
 
 [node name="LaserTowerButton" type="TextureButton" parent="MainHUD/HBar/MarginContainer/HBoxContainer/GridContainer"]
 layout_mode = 2
+focus_mode = 0
 script = ExtResource("3_q8wr8")
 tower_stats = ExtResource("4_6f0sp")
 
 [node name="PulseTowerButton" type="TextureButton" parent="MainHUD/HBar/MarginContainer/HBoxContainer/GridContainer"]
 layout_mode = 2
+focus_mode = 0
 texture_normal = ExtResource("3_08eo4")
 script = ExtResource("3_q8wr8")
 tower_stats = ExtResource("5_0vkf1")
 
 [node name="RailgunTowerButton" type="TextureButton" parent="MainHUD/HBar/MarginContainer/HBoxContainer/GridContainer"]
 layout_mode = 2
+focus_mode = 0
 texture_normal = SubResource("GradientTexture2D_q840n")
 script = ExtResource("3_q8wr8")
 tower_stats = ExtResource("6_85qpw")
 
 [node name="GammaTower" type="TextureButton" parent="MainHUD/HBar/MarginContainer/HBoxContainer/GridContainer"]
 layout_mode = 2
+focus_mode = 0
 script = ExtResource("3_q8wr8")
 tower_stats = ExtResource("6_41mfy")
 
