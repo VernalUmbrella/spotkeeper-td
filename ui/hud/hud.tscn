@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://b8wrls8mbvp8i"]
+[gd_scene load_steps=15 format=3 uid="uid://b8wrls8mbvp8i"]
 
 [ext_resource type="Theme" uid="uid://dljh7gpbntv8f" path="res://ui/global_theme.tres" id="1_pkt7u"]
 [ext_resource type="Script" path="res://ui/hud/hud.gd" id="1_vad6r"]
@@ -25,6 +25,9 @@ height = 8
 [sub_resource type="LabelSettings" id="LabelSettings_u2ceh"]
 line_spacing = 0.0
 font_size = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m3ow0"]
+bg_color = Color(1, 1, 1, 0.286275)
 
 [node name="HUD" type="Control"]
 layout_mode = 3
@@ -166,4 +169,43 @@ theme_override_font_sizes/normal_font_size = 16
 bbcode_enabled = true
 text = "[center][color=ff0000]YOU DIED[/color][/center]"
 
+[node name="YouWin" type="Panel" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_m3ow0")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="YouWin"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -50.0
+offset_top = -22.0
+offset_right = 50.0
+offset_bottom = 22.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="YouWin/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 16
+bbcode_enabled = true
+text = "[center][color=00ff00]YOU WIN[/color][/center]"
+fit_content = true
+
+[node name="ResetButton" type="Button" parent="YouWin/VBoxContainer"]
+layout_mode = 2
+text = "Back to Title"
+
 [connection signal="pressed" from="MainHUD/HBar/MarginContainer/HBoxContainer/WaveButton" to="." method="_on_wave_button_pressed"]
+[connection signal="pressed" from="YouWin/VBoxContainer/ResetButton" to="." method="_on_reset_button_pressed"]

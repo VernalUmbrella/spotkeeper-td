@@ -14,12 +14,14 @@ extends Control
 @onready var tooltip: Label = %Tooltip
 @onready var wave_button: Button = %WaveButton
 @onready var you_died: Panel = %YouDied
+@onready var you_win: Panel = %YouWin
 
 func _ready() -> void:
 	Events.tower_selected.connect(_on_tower_selected)
 	_on_tower_selected(null)
 	Events.wave_ended.connect(_on_wave_ended)
 	Events.game_lost.connect(_on_game_lost)
+	Events.game_won.connect(_on_game_won)
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("start_wave") and not wave_button.disabled:
@@ -52,12 +54,22 @@ func _on_wave_ended() -> void:
 
 func _on_game_lost() -> void:
 	var tween := create_tween()
-	you_died.visible = true
+	you_died.show()
 	tween.tween_property(you_died, "modulate", Color.WHITE, 1.8).from(Color.TRANSPARENT)
 	tween.tween_interval(3)
 	tween.tween_callback(reset_game)
+
+func _on_game_won() -> void:
+	wave_button.disabled = true
+	var tween := create_tween()
+	you_win.show()
+	tween.tween_property(you_win, "modulate", Color.WHITE, 1.8).from(Color.TRANSPARENT)
+	tween.tween_interval(3)
 
 func reset_game() -> void:
 	get_tree().change_scene_to_file("res://ui/title_screen/title_screen.tscn")
 	for main_scene in get_tree().get_nodes_in_group("main"):
 		main_scene.queue_free()
+
+func _on_reset_button_pressed() -> void:
+	reset_game()
