@@ -18,8 +18,7 @@ var coins: int = 0:
 			"amount": coins,
 			"difficulty": ["", " (HARD)", " (MEDIUM)", " (EASY)"][coins],
 		})
-		if coins > 0:
-			start_button.disabled = false
+		start_button.disabled = (coins == 0)
 		if coins >= max_coins:
 			coin_button.text = "RESET"
 
